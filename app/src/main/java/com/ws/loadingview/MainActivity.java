@@ -16,6 +16,7 @@ import com.ws.loadingview.view.WSFiveStar;
 import com.ws.loadingview.view.WSGears;
 import com.ws.loadingview.view.WSJump;
 import com.ws.loadingview.view.WSLineProgress;
+import com.ws.loadingview.view.WSMaterialLoading;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private WSCircleRise mWSCircleRise;
     private WSCircleBar mWSCircleBar;
     private WSCircleArc mWSCircleArc;
+    private WSMaterialLoading mWSMaterialLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,5 +84,8 @@ public class MainActivity extends AppCompatActivity {
 
         mWSCircleArc= (WSCircleArc) findViewById(R.id.load_arc);
         mWSCircleArc.startAnimator();
+
+        mWSMaterialLoading= (WSMaterialLoading) findViewById(R.id.load_material);
+        mWSMaterialLoading.startAnimator();
     }
 }
