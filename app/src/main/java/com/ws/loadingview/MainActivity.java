@@ -18,6 +18,7 @@ import com.ws.loadingview.view.WSGears;
 import com.ws.loadingview.view.WSJump;
 import com.ws.loadingview.view.WSLineProgress;
 import com.ws.loadingview.view.WSMaterialLoading;
+import com.ws.loadingview.view.WSSwapLoading;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private WSCircleArc mWSCircleArc;
     private WSMaterialLoading mWSMaterialLoading;
     private WSGearLoading mWSGearLoading;
+    private WSSwapLoading  mWSSwapLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,5 +95,8 @@ public class MainActivity extends AppCompatActivity {
 
         mWSGearLoading= (WSGearLoading) findViewById(R.id.load_gear_loading);
         mWSGearLoading.startAnimator();
+
+        mWSSwapLoading= (WSSwapLoading) findViewById(R.id.load_swap);
+        mWSSwapLoading.startAnimator();
     }
 }
