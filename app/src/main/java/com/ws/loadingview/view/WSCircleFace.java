@@ -92,7 +92,6 @@ public class WSCircleFace extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeWidth(circleRadius * FACE_RADIUS_RATIO);
 
@@ -108,7 +107,6 @@ public class WSCircleFace extends View {
             canvas.drawCircle((float) (circleCenterX + circleRadius * Math.sin(Math.toRadians(EYE_ROUND))),
                     (float) (circleCenterY - circleRadius * Math.cos(Math.toRadians(EYE_ROUND))), mPaint.getStrokeWidth() * 3 / 2, mPaint);
         }
-
     }
 
     //开始动画

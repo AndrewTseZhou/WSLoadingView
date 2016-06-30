@@ -1,7 +1,7 @@
 package com.ws.loadingview;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.ws.loadingview.view.WSCircleArc;
 import com.ws.loadingview.view.WSCircleBar;
@@ -13,9 +13,11 @@ import com.ws.loadingview.view.WSCircleRise;
 import com.ws.loadingview.view.WSCircleSun;
 import com.ws.loadingview.view.WSEatBeans;
 import com.ws.loadingview.view.WSFiveStar;
+import com.ws.loadingview.view.WSGearLoading;
 import com.ws.loadingview.view.WSGears;
 import com.ws.loadingview.view.WSJump;
 import com.ws.loadingview.view.WSLineProgress;
+import com.ws.loadingview.view.WSMaterialLoading;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private WSCircleRise mWSCircleRise;
     private WSCircleBar mWSCircleBar;
     private WSCircleArc mWSCircleArc;
+    private WSMaterialLoading mWSMaterialLoading;
+    private WSGearLoading mWSGearLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,5 +86,12 @@ public class MainActivity extends AppCompatActivity {
 
         mWSCircleArc= (WSCircleArc) findViewById(R.id.load_arc);
         mWSCircleArc.startAnimator();
+
+
+        mWSMaterialLoading= (WSMaterialLoading) findViewById(R.id.load_material);
+        mWSMaterialLoading.startAnimator();
+
+        mWSGearLoading= (WSGearLoading) findViewById(R.id.load_gear_loading);
+        mWSGearLoading.startAnimator();
     }
 }
