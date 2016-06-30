@@ -16,8 +16,6 @@
 
 ![load](https://github.com/HpWens/WSLoadingView/blob/master/app/photos/load.gif)
 
-![load](https://github.com/HpWens/WSLoadingView/blob/master/app/photos/material.gif)
-
 
 ##WSCircleCD
 
