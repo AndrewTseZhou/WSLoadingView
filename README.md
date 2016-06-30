@@ -14,7 +14,7 @@
 
 先出图说话：
 
-![load](http://img.blog.csdn.net/20160628224646411.gif)
+![load](https://github.com/HpWens/WSLoadingView/blob/master/app/photos/load.gif)
 
 ![load](https://github.com/HpWens/WSLoadingView/blob/master/app/photos/material.gif)
 
