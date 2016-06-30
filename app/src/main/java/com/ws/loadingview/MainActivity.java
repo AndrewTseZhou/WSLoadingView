@@ -3,10 +3,13 @@ package com.ws.loadingview;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.ws.loadingview.view.WSCircleArc;
+import com.ws.loadingview.view.WSCircleBar;
 import com.ws.loadingview.view.WSCircleCD;
 import com.ws.loadingview.view.WSCircleFace;
 import com.ws.loadingview.view.WSCircleJump;
 import com.ws.loadingview.view.WSCircleRing;
+import com.ws.loadingview.view.WSCircleRise;
 import com.ws.loadingview.view.WSCircleSun;
 import com.ws.loadingview.view.WSEatBeans;
 import com.ws.loadingview.view.WSFiveStar;
@@ -27,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
     private WSEatBeans mWSEatBeans;
     private WSFiveStar mWSFiveStar;
     private WSFiveStar mWSFiveStarView;
+    private WSCircleRise mWSCircleRise;
+    private WSCircleBar mWSCircleBar;
+    private WSCircleArc mWSCircleArc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,5 +73,14 @@ public class MainActivity extends AppCompatActivity {
         mWSFiveStarView= (WSFiveStar) findViewById(R.id.load_mfive);
         mWSFiveStarView.setRegularPolygon(5);
         mWSFiveStarView.startAnimator();
+
+        mWSCircleRise= (WSCircleRise) findViewById(R.id.load_rise);
+        mWSCircleRise.startAnimator();
+
+        mWSCircleBar= (WSCircleBar) findViewById(R.id.load_bar);
+        mWSCircleBar.startAnimator();
+
+        mWSCircleArc= (WSCircleArc) findViewById(R.id.load_arc);
+        mWSCircleArc.startAnimator();
     }
 }
