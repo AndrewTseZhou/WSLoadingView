@@ -1,20 +1,25 @@
 # WSLoadingView
 
-　　那一刻 我升起风马 不为乞福 只为守候你的到来
-　　那一天 闭目在经殿香雾中 蓦然听见 你颂经中的真言
-　　那一日 垒起玛尼堆 不为修德 只为投下心湖的石子
-　　那一夜 我听了一宿梵唱 不为参悟 只为寻你的一丝气息
+A simple load animation
 
-##概述
+一个简单的加载动画
 
-有时候我会为了实现某个动画的算法而绞尽脑汁，苦苦思考。往往会在草稿上面绘制动画轨迹，真的很多时候几天就在纠结一个动画的实现，不过最后成功后真的很满足喜悦。
-
-我陆续出过一些`LodingView`的文章，但都比较杂乱。近来我在网上看到一张图，并通过代码实现了出来。在这边非常感谢`@ldoublem`，我会不断更新`LodingView`把好看及简洁的动画集成进来，希望能够帮助到你。
-
-
-先出图说话：
+##impression drawing
 
 ![load](https://github.com/HpWens/WSLoadingView/blob/master/app/photos/load.gif)
+
+##LoadingView Usage 
+
+###WSSwapLoading
+
+xml
+
+```
+
+
+```
+
+
 
 
 ##WSCircleCD
