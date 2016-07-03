@@ -5,9 +5,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.Rect;
-import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -15,34 +12,44 @@ import android.view.animation.LinearInterpolator;
 /**
  * Created by Administrator on 6/28 0028.
  */
-public class WSCircleRise extends View {
+public class WSCircleRipple extends View {
 
-    private Paint mPaint;
     private Context mContext;
+    private Paint mPaint;
 
-    private int circleCenterX, circleCenterY;
+    private float centerX;
 
-    private int circleRadius;
-
-    private Path mPath;
-
-    private float startAngle, sweepAngle;
+    private float centerY;
 
     private float mValueAnimator;
 
-    private String text;
+    private float rippleRadius;
 
-    private final static float RADIUS_RATIO = 2 / 3f;
+    private float rippleMaxRadius;
 
-    public WSCircleRise(Context context) {
+    private float rippleMinRadius;
+
+    private float canvasRadius;
+
+    private int currentAlpha = ALPHA_255;
+
+    private static final float MIN_RIPPLE_RADIUS = 0.1f;
+
+    private static final float MAX_RIPPLE_RADIUS = 0.67f;
+
+    private static final int ALPHA_255 = 255;
+
+    private static final int STROKE_WIDTH = 1;
+
+    public WSCircleRipple(Context context) {
         this(context, null);
     }
 
-    public WSCircleRise(Context context, AttributeSet attrs) {
+    public WSCircleRipple(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public WSCircleRise(Context context, AttributeSet attrs, int defStyleAttr) {
+    public WSCircleRipple(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
@@ -53,9 +60,8 @@ public class WSCircleRise extends View {
         mPaint.setAntiAlias(true);
         mPaint.setDither(true);
         mPaint.setColor(Color.WHITE);
-        mPaint.setStyle(Paint.Style.FILL);
-
-        startAngle = 90;
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(dip2px(STROKE_WIDTH));
     }
 
     @Override
@@ -84,12 +90,16 @@ public class WSCircleRise extends View {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
 
-        circleCenterX = w / 2;
-        circleCenterY = h / 2;
+        centerX = w / 2;
 
-        //处理padding情况
-        circleRadius = (int) (Math.min(Math.min(circleCenterY - getPaddingTop(), circleCenterY - getPaddingBottom()),
-                Math.min(circleCenterX - getPaddingLeft(), circleCenterX - getPaddingRight())) * RADIUS_RATIO);
+        centerY = h / 2;
+
+        canvasRadius = (int) (Math.min(Math.min(centerY - getPaddingTop(), centerY - getPaddingBottom()),
+                Math.min(centerX - getPaddingLeft(), centerX - getPaddingRight())));
+
+        rippleRadius = rippleMinRadius = MIN_RIPPLE_RADIUS * canvasRadius;
+
+        rippleMaxRadius = MAX_RIPPLE_RADIUS * canvasRadius;
 
     }
 
@@ -97,28 +107,8 @@ public class WSCircleRise extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        mPaint.setColor(Color.parseColor("#303F9F"));
-        canvas.drawCircle(circleCenterX,circleCenterY,circleRadius,mPaint);
-
-        mPath = new Path();
-        mPath.reset();
-        mPaint.setColor(Color.parseColor("#FF4081"));
-        RectF rectF = new RectF(circleCenterX - circleRadius, circleCenterY - circleRadius, circleCenterX + circleRadius, circleCenterY + circleRadius);
-        mPath.arcTo(rectF, startAngle, sweepAngle);
-
-        canvas.drawPath(mPath, mPaint);
-
-        text = (int) (mValueAnimator * 100) + "%";
-        mPaint.setColor(Color.WHITE);
-        mPaint.setTextSize(dip2px(30));
-        canvas.drawText(text, circleCenterX - mPaint.measureText(text) / 2, circleCenterY + getFontHeight(mPaint, text) / 2, mPaint);
-
-    }
-
-    public float getFontHeight(Paint paint, String str) {
-        Rect rect = new Rect();
-        paint.getTextBounds(str, 0, str.length(), rect);
-        return rect.height();
+        mPaint.setAlpha(currentAlpha);
+        canvas.drawCircle(centerX, centerY, rippleRadius, mPaint);
 
     }
 
@@ -128,19 +118,16 @@ public class WSCircleRise extends View {
             @Override
             public void run() {
                 ValueAnimator animator = ValueAnimator.ofFloat(0f, 1.0f);
-                animator.setDuration(5000);
+                animator.setDuration(800);
                 animator.setInterpolator(new LinearInterpolator());
                 animator.setRepeatMode(ValueAnimator.RESTART);
                 animator.setRepeatCount(ValueAnimator.INFINITE);
                 animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                     @Override
-                    public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                        mValueAnimator = (float) valueAnimator.getAnimatedValue();
-
-                        startAngle = 90 - mValueAnimator * 180;
-
-                        sweepAngle = 360 * mValueAnimator;
-
+                    public void onAnimationUpdate(ValueAnimator animation) {
+                        mValueAnimator = (float) animation.getAnimatedValue();
+                        currentAlpha = (int) (ALPHA_255 * (1 - mValueAnimator));
+                        rippleRadius = rippleMinRadius + (rippleMaxRadius - rippleMinRadius) * mValueAnimator;
                         postInvalidate();
                     }
                 });
@@ -152,6 +139,7 @@ public class WSCircleRise extends View {
     public void setPaintColor(int color) {
         mPaint.setColor(color);
     }
+
 
     /**
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)

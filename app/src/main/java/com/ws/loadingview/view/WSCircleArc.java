@@ -98,22 +98,23 @@ public class WSCircleArc extends View {
 
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setStrokeWidth(circleRadius * BAR_RADIUS_RATIO);
-        mPaint.setColor(Color.WHITE);
+        mPaint.setColor(Color.parseColor("#303F9F"));
         //画背景
         canvas.drawCircle(circleCenterX, circleCenterY, circleRadius, mPaint);
 
         //画bar
         RectF rect = new RectF(circleCenterX - circleRadius, circleCenterY - circleRadius,
                 circleCenterX + circleRadius, circleCenterY + circleRadius);
-        mPaint.setColor(Color.BLACK);
+        mPaint.setColor(Color.parseColor("#EE0000"));
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(mPaint.getStrokeWidth() * 2);
+        mPaint.setStrokeWidth(dip2px(10));
         canvas.drawArc(rect, startAngle, sweepAngle, false, mPaint);
 
         //画文字
+        mPaint.setColor(Color.WHITE);
         mPaint.setStyle(Paint.Style.FILL);
         text = (int) (mValueAnimator * 100) + "%";
-        mPaint.setTextSize(mPaint.getStrokeWidth() * 2);
+        mPaint.setTextSize(dip2px(24));
         canvas.drawText(text, circleCenterX - mPaint.measureText(text) / 2, circleCenterY + getFontHeight(mPaint, text) / 2, mPaint);
 
     }

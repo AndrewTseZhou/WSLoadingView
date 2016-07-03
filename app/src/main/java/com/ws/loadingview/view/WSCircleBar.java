@@ -34,7 +34,7 @@ public class WSCircleBar extends View {
 
     private final static float RADIUS_RATIO = 2 / 3f;
 
-    private final static float BAR_RADIUS_RATIO = 1 / 8f;
+    private final static float BAR_RADIUS_RATIO = 1 / 4f;
 
     public WSCircleBar(Context context) {
         this(context, null);
@@ -98,20 +98,21 @@ public class WSCircleBar extends View {
 
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeWidth(circleRadius * BAR_RADIUS_RATIO);
-        mPaint.setColor(Color.WHITE);
+        mPaint.setColor(Color.RED);
         //画背景
         canvas.drawCircle(circleCenterX, circleCenterY, circleRadius, mPaint);
 
         //画bar
         RectF rect = new RectF(circleCenterX - circleRadius, circleCenterY - circleRadius,
                 circleCenterX + circleRadius, circleCenterY + circleRadius);
-        mPaint.setColor(Color.BLACK);
+        mPaint.setColor(Color.BLUE);
         canvas.drawArc(rect, startAngle, sweepAngle, false, mPaint);
 
         //画文字
+        mPaint.setColor(Color.WHITE);
         mPaint.setStyle(Paint.Style.FILL);
         text = (int) (mValueAnimator * 100) + "%";
-        mPaint.setTextSize(mPaint.getStrokeWidth() * 4);
+        mPaint.setTextSize(dip2px(24));
         canvas.drawText(text, circleCenterX - mPaint.measureText(text) / 2, circleCenterY + getFontHeight(mPaint, text) / 2, mPaint);
 
     }

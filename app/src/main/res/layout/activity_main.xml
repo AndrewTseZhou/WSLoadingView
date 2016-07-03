@@ -32,6 +32,7 @@
                 android:layout_height="100dp"
                 android:layout_toRightOf="@+id/load_sun"/>
 
+
             <com.ws.loadingview.view.WSCircleFace
                 android:id="@+id/load_face"
                 android:layout_width="100dp"
@@ -59,17 +60,17 @@
                 android:layout_height="100dp"
                 android:layout_below="@+id/load_face"/>
 
-            <com.ws.loadingview.view.WSMaterialLoading
-                android:id="@+id/load_material"
+            <com.ws.loadingview.view.WSCircleRotate
+                android:id="@+id/load_rotate"
                 android:layout_width="100dp"
-                android:layout_below="@+id/load_mjump"
-                android:layout_height="100dp"/>
+                android:layout_height="100dp"
+                android:layout_below="@+id/load_mjump"/>
 
-            <com.ws.loadingview.view.WSGearLoading
-                android:id="@+id/load_gear_loading"
-                android:layout_width="100dp"
-                android:layout_toRightOf="@+id/load_material"
+            <com.ws.loadingview.view.WSCircleRipple
+                android:id="@+id/load_ripple"
+                android:layout_toRightOf="@+id/load_rotate"
                 android:layout_below="@+id/load_mjump"
+                android:layout_width="100dp"
                 android:layout_height="100dp"/>
 
             <com.ws.loadingview.view.WSSwapLoading
@@ -83,7 +84,7 @@
                 android:id="@+id/load_line_progress"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_below="@+id/load_material"/>
+                android:layout_below="@+id/load_rotate"/>
 
             <com.ws.loadingview.view.WSEatBeans
                 android:id="@+id/load_eat"
@@ -125,6 +126,18 @@
                 android:layout_height="100dp"
                 android:layout_below="@+id/load_eat"/>
 
+            <com.ws.loadingview.view.WSMaterialLoading
+                android:id="@+id/load_material"
+                android:layout_width="100dp"
+                android:layout_below="@+id/load_bar"
+                android:layout_height="100dp"/>
+
+            <com.ws.loadingview.view.WSGearLoading
+                android:id="@+id/load_gear_loading"
+                android:layout_width="100dp"
+                android:layout_toRightOf="@+id/load_rotate"
+                android:layout_below="@+id/load_bar"
+                android:layout_height="100dp"/>
 
         </RelativeLayout>
     </ScrollView>

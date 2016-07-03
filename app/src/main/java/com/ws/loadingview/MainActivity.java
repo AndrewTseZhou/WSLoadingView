@@ -9,7 +9,9 @@ import com.ws.loadingview.view.WSCircleCD;
 import com.ws.loadingview.view.WSCircleFace;
 import com.ws.loadingview.view.WSCircleJump;
 import com.ws.loadingview.view.WSCircleRing;
+import com.ws.loadingview.view.WSCircleRipple;
 import com.ws.loadingview.view.WSCircleRise;
+import com.ws.loadingview.view.WSCircleRotate;
 import com.ws.loadingview.view.WSCircleSun;
 import com.ws.loadingview.view.WSEatBeans;
 import com.ws.loadingview.view.WSFiveStar;
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     private WSMaterialLoading mWSMaterialLoading;
     private WSGearLoading mWSGearLoading;
     private WSSwapLoading  mWSSwapLoading;
+    private WSCircleRotate mWSCircleRotate;
+    private WSCircleRipple mWSCircleRipple;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,5 +102,11 @@ public class MainActivity extends AppCompatActivity {
 
         mWSSwapLoading= (WSSwapLoading) findViewById(R.id.load_swap);
         mWSSwapLoading.startAnimator();
+
+        mWSCircleRotate= (WSCircleRotate) findViewById(R.id.load_rotate);
+        mWSCircleRotate.startAnimator();
+
+        mWSCircleRipple= (WSCircleRipple) findViewById(R.id.load_ripple);
+        mWSCircleRipple.startAnimator();
     }
 }
