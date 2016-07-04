@@ -6,17 +6,17 @@ A simple load animation
 
 ##impression drawing
 
-![load](https://github.com/HpWens/WSLoadingView/blob/master/app/photos/load.gif)
+![load](https://github.com/HpWens/WSLoadingView/blob/master/app/photos/loading.gif)
 
 ##LoadingView Usage 
 
-###WSSwapLoading
+###WSCircleRotate
 
 ####xml
 
 ```
-      <com.ws.loadingview.view.WSSwapLoading
-                android:id="@+id/load_swap"
+      <com.ws.loadingview.view.WSCircleRotate
+                android:id="@+id/load_rotate"
                 android:layout_width="100dp"
                 android:layout_height="100dp"/>
 
@@ -26,12 +26,12 @@ If you need animation,please add
 
 ```
 
-mWSSwapLoading.startAnimator();
+mWSCircleRotate.startAnimator();
 
 
 ```
 
-![swap](http://img.blog.csdn.net/20160701000531039)
+![rotate](https://github.com/HpWens/WSLoadingView/blob/master/app/photos/ro.gif)
 
 ##epilogue
 
