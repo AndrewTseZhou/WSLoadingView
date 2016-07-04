@@ -166,25 +166,19 @@ public class WSSwapLoading extends View {
                 }
             }
 
-
             if (i != mCurrentBallIndex && i != getNextBallIndex()) {
                 mPaint.setStyle(Paint.Style.STROKE);
                 canvas.drawCircle(centerX - mRadius + ballSpacing * i, centerY, ballRadius, mPaint);
             }
 
         }
-
-
         // centerX - mRadius + ballSpacing*0.5f      centerY
-
-
     }
 
-    public void getFirstAndLastAngle(){
+    public void getFirstAndLastAngle() {
         mRotationAngle = mValueAnimator * DEGREE_180;
         mNextRotationAngle = DEGREE_180 + mValueAnimator * DEGREE_180;
     }
-
 
     public boolean isClockwiseRotation(int index) {
         if (index % 2 == 0) {

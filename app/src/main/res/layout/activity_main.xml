@@ -73,6 +73,8 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"/>
 
+
+
             <com.ws.loadingview.view.WSSwapLoading
                 android:id="@+id/load_swap"
                 android:layout_width="100dp"

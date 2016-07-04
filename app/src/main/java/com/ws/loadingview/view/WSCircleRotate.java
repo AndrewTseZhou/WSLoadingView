@@ -19,7 +19,7 @@ public class WSCircleRotate extends View {
 
     private float centerX;
     private float centerY;
-    private float storeRadius;
+    private float mRadius;
 
     private float ballX;
     private float ballY;
@@ -96,7 +96,7 @@ public class WSCircleRotate extends View {
         centerY = h / 2;
 
         //处理padding情况
-        storeRadius = (int) (Math.min(centerX - getPaddingLeft(), centerX - getPaddingRight()) * RADIUS_RATIO);
+        mRadius = (int) (Math.min(centerX - getPaddingLeft(), centerX - getPaddingRight()) * RADIUS_RATIO);
 
     }
 
@@ -108,12 +108,12 @@ public class WSCircleRotate extends View {
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeWidth(dip2px(DEFAULT_STORE_WIDTH));
         mPaint.setAlpha(STORE_CIRCLE_ALPHA);
-        canvas.drawCircle(centerX, centerY, storeRadius, mPaint);
+        canvas.drawCircle(centerX, centerY, mRadius, mPaint);
 
         mPaint.setAlpha(ALPHA_255);
         mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        ballX = centerX + storeRadius * (float) Math.cos(Math.toRadians(DEFAULT_BALL_START_ANGLE + mValueAnimator * DEGREE_360));
-        ballY = centerY + storeRadius * (float) Math.sin(Math.toRadians(DEFAULT_BALL_START_ANGLE + mValueAnimator * DEGREE_360));
+        ballX = centerX + mRadius * (float) Math.cos(Math.toRadians(DEFAULT_BALL_START_ANGLE + mValueAnimator * DEGREE_360));
+        ballY = centerY + mRadius * (float) Math.sin(Math.toRadians(DEFAULT_BALL_START_ANGLE + mValueAnimator * DEGREE_360));
 
         canvas.drawCircle(ballX,ballY,dip2px(DEFAULT_BALL_RADIUS),mPaint);
     }
