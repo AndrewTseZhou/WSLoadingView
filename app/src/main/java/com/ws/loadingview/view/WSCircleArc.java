@@ -123,7 +123,6 @@ public class WSCircleArc extends View {
         Rect rect = new Rect();
         paint.getTextBounds(str, 0, str.length(), rect);
         return rect.height();
-
     }
 
     //开始动画

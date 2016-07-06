@@ -74,7 +74,6 @@
                 android:layout_height="100dp"/>
 
 
-
             <com.ws.loadingview.view.WSSwapLoading
                 android:id="@+id/load_swap"
                 android:layout_width="100dp"
@@ -94,8 +93,8 @@
                 android:layout_height="100dp"
                 android:layout_below="@+id/load_line_progress"/>
 
-            <com.ws.loadingview.view.WSFiveStar
-                android:id="@+id/load_five"
+            <com.ws.loadingview.view.WSCubes
+                android:id="@+id/load_cube"
                 android:layout_width="100dp"
                 android:layout_toRightOf="@+id/load_mjump"
                 android:layout_height="100dp"
@@ -104,7 +103,7 @@
             <com.ws.loadingview.view.WSFiveStar
                 android:id="@+id/load_mfive"
                 android:layout_width="100dp"
-                android:layout_toRightOf="@+id/load_five"
+                android:layout_toRightOf="@+id/load_cube"
                 android:layout_height="100dp"
                 android:layout_below="@+id/load_jump"/>
 

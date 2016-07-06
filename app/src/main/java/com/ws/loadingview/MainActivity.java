@@ -13,6 +13,7 @@ import com.ws.loadingview.view.WSCircleRipple;
 import com.ws.loadingview.view.WSCircleRise;
 import com.ws.loadingview.view.WSCircleRotate;
 import com.ws.loadingview.view.WSCircleSun;
+import com.ws.loadingview.view.WSCubes;
 import com.ws.loadingview.view.WSEatBeans;
 import com.ws.loadingview.view.WSFiveStar;
 import com.ws.loadingview.view.WSGearLoading;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private WSJump mWSJump;
     private WSLineProgress mWSLineProgress;
     private WSEatBeans mWSEatBeans;
-    private WSFiveStar mWSFiveStar;
+    private WSCubes mWSCubes;
     private WSFiveStar mWSFiveStarView;
     private WSCircleRise mWSCircleRise;
     private WSCircleBar mWSCircleBar;
@@ -77,8 +78,8 @@ public class MainActivity extends AppCompatActivity {
         mWSEatBeans= (WSEatBeans) findViewById(R.id.load_eat);
         mWSEatBeans.startAnimator();
 
-        mWSFiveStar= (WSFiveStar) findViewById(R.id.load_five);
-        mWSFiveStar.startAnimator();
+        mWSCubes= (WSCubes) findViewById(R.id.load_cube);
+        mWSCubes.startAnimator();
 
         mWSFiveStarView= (WSFiveStar) findViewById(R.id.load_mfive);
         mWSFiveStarView.setRegularPolygon(5);
