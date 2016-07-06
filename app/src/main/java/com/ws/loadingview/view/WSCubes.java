@@ -110,11 +110,13 @@ public class WSCubes extends View {
                 drawShadow1(canvas, mValueAnimator);
             }
         } else if (mValueAnimator >= (1.0f / 3) && mValueAnimator < (1.0f / 3 * 2)) {
+            //绘制第二阶段
             drawStage2(canvas, mValueAnimator);
             if (mShadow) {
                 drawShadow2(canvas, mValueAnimator);
             }
         } else if (mValueAnimator >= (1.0f / 3 * 2) && mValueAnimator <= 1.0f) {
+            //绘制第三阶段
             drawStage3(canvas, mValueAnimator);
             if (mShadow) {
                 drawShadow3(canvas, mValueAnimator);
