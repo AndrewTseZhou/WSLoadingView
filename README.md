@@ -37,6 +37,8 @@ mWSCircleRotate.startAnimator();
 
 I will keep on updating,Welcome attention http://blog.csdn.net/u012551350/article/details/51779358
 
+QQ群： 478720016   欢迎你的加入
+
 ##License
 
 ```
